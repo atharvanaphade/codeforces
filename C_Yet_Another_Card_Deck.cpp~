@@ -1,0 +1,27 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	int n, q;
+	cin >> n >> q;
+	list<int> a(n), t(q);
+	for (int i = 0; i < n; i++){
+		cin >> a[i];
+	}
+	for (int i = 0; i < q; i++){
+		cin >> t[i];
+	}
+	for (int i = 0; i < t.size(); i++){
+		for (int j = 0; j < a.size(); j++){
+			if (a[j] == t[i]){
+				cout << j + 1 << " ";
+				int temp = a[j];
+				a.erase(a.begin() + j);
+				a.push_front(a[j]);
+				break;
+			}
+		}
+	}
+}
